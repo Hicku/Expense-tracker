@@ -19,7 +19,7 @@ function App() {
       <div className="container">
         <Balance />
         <IncomeExpenses />
-        <TransactionList />
+        <TransactionList transactionsData={transactionsData} />
         <AddTransaction
           transactionsData={transactionsData}
           setTransactionsData={setTransactionsData}

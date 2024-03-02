@@ -10,7 +10,7 @@ const AddTransaction = ({ onAddTransaction }) => {
     const newTransaction = {
       id: Date.now(),
       text,
-      amount,
+      amount: +amount,
     };
 
     if (!text) {
