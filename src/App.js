@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import AddTransaction from "./components/AddTransaction";
 import Balance from "./components/Balance";
@@ -6,6 +7,12 @@ import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
 
 function App() {
+  const [transactionsData, setTransactionsData] = useState([]);
+
+  const addNewTransaction = (item) => {
+    setTransactionsData((transactionsData) => [...transactionsData, item]);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -13,7 +20,11 @@ function App() {
         <Balance />
         <IncomeExpenses />
         <TransactionList />
-        <AddTransaction />
+        <AddTransaction
+          transactionsData={transactionsData}
+          setTransactionsData={setTransactionsData}
+          onAddTransaction={addNewTransaction}
+        />
       </div>
     </div>
   );
